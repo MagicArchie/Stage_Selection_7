@@ -19,6 +19,7 @@ let lockedNodeSound;
 let homeButtonSound;
 
 let backgroundMusic;
+let ProgressL = 777;
 
 // Array to store links for each node
 const nodeLinks = [
@@ -30,6 +31,8 @@ const nodeLinks = [
   'https://magicarchie.github.io/Stage_6F/',
   'https://magicarchie.github.io/Stage_7F/'
 ];
+
+let LocationS = parseInt(localStorage.getItem('PageL'), 10);
 
 function preload() {
   //loadFont('Granesta.otf');
@@ -141,6 +144,10 @@ function draw() {
   background(Bg_Img);
 
   //textFont('Granesta', 100);
+  if (ProgressL > LocationS) {
+    LocationS = ProgressL;
+    localStorage.setItem('PageL', LocationS); 
+  }
 
   // Draw the return button
   image(returnButtonImage, returnButtonX, returnButtonY, returnButtonSize, returnButtonSize);
